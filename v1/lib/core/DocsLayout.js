@@ -151,6 +151,7 @@ class DocsLayout extends React.Component {
                 </a>
               )}
             </div>
+            <div id="gitment" />
           </Container>
           {hasOnPageNav && (
             <nav className="onPageNav">

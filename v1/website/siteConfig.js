@@ -9,6 +9,12 @@
 const users = require('./data/users');
 
 const siteConfig = {
+  gitment: {
+    owner: 'disoul',
+    repo: 'gitment-for-rtcdoc',
+    clientId: 'e7af52df6e8399b0dd4f',
+    clientSecret: '4f0d579c1c502a21f2df8804f9cc5c1613f2a610',
+  },
   title: 'Docusaurus',
   tagline: 'Easy to Maintain Open Source Documentation Websites',
   url: 'https://docusaurus.io',
