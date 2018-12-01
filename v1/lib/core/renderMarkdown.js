@@ -110,6 +110,8 @@ class MarkdownRenderer {
   }
 
   toHtml(source) {
+    this.md.anchorDep = [-1];
+    this.md.lastHLevel = undefined;
     const html = this.md.render(source);
 
     // Ensure fenced code blocks use Highlight.js hljs class
