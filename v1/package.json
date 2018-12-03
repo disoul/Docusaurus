@@ -1,7 +1,7 @@
 {
   "name": "pili-rtc-doc",
   "description": "Easy to Maintain Open Source Documentation Websites",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "license": "MIT",
   "keywords": ["documentation", "websites", "open source", "docusaurus"],
   "repository": {

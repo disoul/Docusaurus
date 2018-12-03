@@ -325,7 +325,7 @@ class HeaderNav extends React.Component {
                   <div className="navSideMenu__list">
                     {this.props.config.navSideMenu.list.map(item => (
                       <a className="navSideMenu__item" href={item.href}>
-                        <img className="navSideMenu__img" src={item.logo} alt="" />
+                        <img className="navSideMenu__img" src={this.props.baseUrl + item.logo} alt="" />
                         <p className="navSideMenu__title">{item.title}</p>
                       </a>
                     ))}
