@@ -2335,3 +2335,61 @@ input::placeholder {
   padding: 5px 0;
 }
 /* End of Footer */
+
+/* Start of navSideMenu */
+.logoBlock {
+  position: relative;
+  overflow: visible;
+}
+
+.logoBlock:hover .navSideMenu, .navSideMenu:hover{
+  opacity: 1;
+  z-index: 1;
+  transform: translateY(0px);
+  pointer-events: auto;
+}
+
+.navSideMenu {
+  padding-top: 4px;
+  position: absolute;
+  border-radius: 5px;
+  left: -20px;
+  transition: ease opacity 0.3s, ease transform 0.3s;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-20px);
+  cursor: pointer;
+  z-index: -10;
+  pointer-events: none;
+}
+
+.navSideMenu__list {
+  background-color: $primaryColor;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navSideMenu__item {
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+  margin-top: 0.25em;
+  height: 56px !important;
+}
+
+.navSideMenu__item:hover {
+  background: $secondaryColor;
+}
+
+.navSideMenu__img {
+  width: 34px;
+  height: 34px;
+}
+
+.navSideMenu__title {
+  margin: 0;
+  margin-left: 14px;
+}
+
+/* End of navSideMenu */

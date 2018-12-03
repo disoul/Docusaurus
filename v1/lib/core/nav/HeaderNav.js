@@ -303,22 +303,36 @@ class HeaderNav extends React.Component {
       <div className="fixedHeaderContainer">
         <div className="headerWrapper wrapper">
           <header>
-            <a
-              href={
-                this.props.baseUrl +
-                (env.translation.enabled ? this.props.language : '')
-              }>
-              {siteConfig.headerIcon && (
-                <img
-                  className="logo"
-                  src={this.props.baseUrl + siteConfig.headerIcon}
-                  alt={siteConfig.title}
-                />
+            <div className="logoBlock">
+              <a
+                href={
+                  this.props.baseUrl +
+                  (env.translation.enabled ? this.props.language : '')
+                }>
+                {siteConfig.headerIcon && (
+                  <img
+                    className="logo"
+                    src={this.props.baseUrl + siteConfig.headerIcon}
+                    alt={siteConfig.title}
+                  />
+                )}
+                {!this.props.config.disableHeaderTitle && (
+                  <h2 className={headerClass}>{this.props.title}</h2>
+                )}
+              </a>
+              { this.props.config.navSideMenu && (
+                <div className="navSideMenu" style={{ width: this.props.config.navSideMenu.width }}>
+                  <div className="navSideMenu__list">
+                    {this.props.config.navSideMenu.list.map(item => (
+                      <a className="navSideMenu__item" href={item.href}>
+                        <img className="navSideMenu__img" src={item.logo} alt="" />
+                        <p className="navSideMenu__title">{item.title}</p>
+                      </a>
+                    ))}
+                  </div>
+                </div>
               )}
-              {!this.props.config.disableHeaderTitle && (
-                <h2 className={headerClass}>{this.props.title}</h2>
-              )}
-            </a>
+            </div>
             {env.versioning.enabled && (
               <a href={versionsLink}>
                 <h3>{this.props.version || env.versioning.defaultVersion}</h3>
