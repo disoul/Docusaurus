@@ -21,6 +21,15 @@ const siteConfig = {
   baseUrl: '/',
   organizationName: 'facebook',
   projectName: 'Docusaurus',
+  navSideMenu: {
+    list: [
+      {logo: "img/docusaurus.svg", title: "Test1XXXXXX" },
+      {logo: "img/docusaurus.svg", title: "Test1XXXXXX" },
+      {logo: "img/docusaurus.svg", title: "Test1XXXXXX" },
+      {logo: "img/docusaurus.svg", title: "Test1XXXXXX" },
+    ],
+    width: 300,
+  },
   cname: 'docusaurus.io',
   noIndex: false,
   users,
