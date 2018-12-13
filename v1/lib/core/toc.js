@@ -53,7 +53,10 @@ function getTOC(content, headingTags = 'h2', subHeadingTags = 'h3') {
       anchorDep[anchorDep.length - 1] += 1;
     }
     if (hLevel > lastHLevel) {
-      anchorDep.push(0);
+      const diff = hLevel - lastHLevel;
+      for (let i = 0; i < diff; i += 1) {
+        anchorDep.push(0);
+      }
     }
     lastHLevel = hLevel;
     const hashLink = anchorDep.join("_");

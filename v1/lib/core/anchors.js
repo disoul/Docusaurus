@@ -32,7 +32,10 @@ function anchors(md) {
         md.anchorDep[md.anchorDep.length - 1] += 1;
       }
       if (hLevel > lastHLevel) {
-        md.anchorDep.push(0);
+        const diff = hLevel - lastHLevel;
+        for (let i = 0; i < diff; i += 1) {
+          md.anchorDep.push(0);
+        }
       }
       md.lastHLevel = hLevel;
       const anchor = md.anchorDep.join("_");
