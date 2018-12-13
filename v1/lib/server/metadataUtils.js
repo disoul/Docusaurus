@@ -70,15 +70,23 @@ function mdToHtml(Metadata, siteConfig) {
   const result = {};
   Object.keys(Metadata).forEach(id => {
     const metadata = Metadata[id];
-    if (metadata.language !== 'en' || metadata.original_id) {
-      return;
-    }
-    let htmlLink = baseUrl + metadata.permalink.replace('/next/', '/');
-
     const baseDocsPart = `${baseUrl}${docsUrl ? `${docsUrl}/` : ''}`;
 
     const i18nDocsRegex = new RegExp(`^${baseDocsPart}en/`);
     const docsRegex = new RegExp(`^${baseDocsPart}`);
+    if (metadata.original_id) {
+      const version = metadata.original_id.split("-")[1];
+      let htmlLink = baseUrl + metadata.permalink.replace(`/${version}/`, '/');
+      htmlLink = htmlLink.replace(docsRegex, `${baseDocsPart}VERSION/`);
+      const source = metadata.source.split("/")[1];
+      result[source] = htmlLink;
+      return;
+    }
+    if (metadata.language !== 'en') {
+      return;
+    }
+    let htmlLink = baseUrl + metadata.permalink.replace('/next/', '/');
+
     if (i18nDocsRegex.test(htmlLink)) {
       htmlLink = htmlLink.replace(i18nDocsRegex, `${baseDocsPart}en/VERSION/`);
     } else {

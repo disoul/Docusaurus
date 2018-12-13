@@ -125,30 +125,9 @@ class Site extends React.Component {
               }}
             />
           )}
-          {this.props.config.gitment && 
-            (
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-                var gm_container = document.getElementById("gitment");
-                if (gm_container) {
-                  var gm_ids = location.pathname.split("/");
-                  var gm_id = gm_ids[gm_ids.length - 1];
-                  var gitment = new Gitment({
-                    id: gm_id,
-                    owner: '${this.props.config.gitment.owner}',
-                    repo: '${this.props.config.gitment.repo}',
-                    oauth: {
-                      client_id: '${this.props.config.gitment.clientId}',
-                      client_secret: '${this.props.config.gitment.clientSecret}',
-                    },
-                  });
-                  gitment.render(gm_container);
-                }
-                `
-              }}
-            />)
-          }
+          {this.props.config.commento && (
+            <script src={this.props.config.commento.url} />
+          )}
           {this.props.config.algolia &&
             (this.props.config.algolia.algoliaOptions ? (
               <script

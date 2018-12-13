@@ -80,8 +80,6 @@ class Head extends React.Component {
           />
         )}
         <link rel="stylesheet" href={highlightThemeURL} />
-        <link rel="stylesheet" href="https://sdk-release.qnsdk.com/gitment_gh.min.css" />
-        <script src="https://sdk-release.qnsdk.com/gitment_gh.min.js" />
         {hasBlog && (
           <link
             rel="alternate"
