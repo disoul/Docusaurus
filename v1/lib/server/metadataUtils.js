@@ -75,11 +75,10 @@ function mdToHtml(Metadata, siteConfig) {
     const i18nDocsRegex = new RegExp(`^${baseDocsPart}en/`);
     const docsRegex = new RegExp(`^${baseDocsPart}`);
     if (metadata.original_id) {
-      const version = metadata.original_id.split("-")[1];
+      const version = metadata.id.split("-")[1];
       let htmlLink = baseUrl + metadata.permalink.replace(`/${version}/`, '/');
       htmlLink = htmlLink.replace(docsRegex, `${baseDocsPart}VERSION/`);
-      const source = metadata.source.split("/")[1];
-      result[source] = htmlLink;
+      result[metadata.source] = htmlLink;
       return;
     }
     if (metadata.language !== 'en') {

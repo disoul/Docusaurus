@@ -59,7 +59,11 @@ function mdToHtmlify(oldContent, mdToHtml, metadata) {
   const linkRegex = /(?:\]\()(?:\.\/)?([^'")\]\s>]+\.md)/g;
   let linkMatch = linkRegex.exec(content);
   while (linkMatch !== null) {
-    mdLinks.push(linkMatch[1]);
+    if (metadata.version !== "next" && !!env.versioning.latestVersion) {
+      mdLinks.push(`version-${metadata.version}/${linkMatch[1]}`);
+    } else {
+      mdLinks.push(linkMatch[1]);
+    }
     linkMatch = linkRegex.exec(content);
   }
   // find any reference-style links to markdown files
@@ -82,6 +86,9 @@ function mdToHtmlify(oldContent, mdToHtml, metadata) {
           ? `/${metadata.version}/`
           : '/',
       );
+      if (metadata.version !== "next" && env.versioning.latestVersion) {
+        mdLink = mdLink.split("/")[1];
+      }
       content = content.replace(
         new RegExp(`\\]\\((\\./)?${mdLink}`, 'g'),
         `](${htmlLink}`,

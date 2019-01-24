@@ -118,9 +118,11 @@ files.forEach(file => {
   const docsDir = path.join(CWD, '../', readMetadata.getDocsPath());
   const subDir = utils.getSubDir(file, docsDir);
   const originalId = subDir ? `${subDir}/${metadata.id}` : metadata.id;
+  /*
   if (!versionFallback.diffLatestDoc(file, originalId)) {
     return;
   }
+  */
 
   metadata.original_id = originalId;
   metadata.id = `version-${version}-${originalId}`;
@@ -136,7 +138,9 @@ files.forEach(file => {
 });
 
 // copy sidebar if necessary
+/*
 if (versionFallback.diffLatestSidebar()) {
+*/
   mkdirp(`${CWD}/versioned_sidebars`);
   const sidebar = JSON.parse(fs.readFileSync(`${CWD}/sidebars.json`, 'utf8'));
   const versioned = {};
@@ -171,7 +175,9 @@ if (versionFallback.diffLatestSidebar()) {
     `${JSON.stringify(versioned, null, 2)}\n`,
     'utf8',
   );
+/*
 }
+*/
 
 // update versions.json file
 versions.unshift(version);

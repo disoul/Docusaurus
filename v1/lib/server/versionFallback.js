@@ -232,7 +232,7 @@ function docData() {
           console.log(e);
           process.exit(1);
         }
-        if (!useVersion) {
+        if (!useVersion || useVersion !== version) {
           return;
         }
         const file = versionFiles[useVersion][id];
